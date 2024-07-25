@@ -17,7 +17,9 @@ public class Main {
         HashMap<Integer, Integer> map1 = numbersInHashMap(array1);
         HashMap<Integer, Integer> map2 = numbersInHashMap(array2);
         for (Integer key : map1.keySet()) {
-            return (map1.get(key).equals(map2.get(key)));
+//            System.out.println(map1.get(key).equals(map2.get(key)));
+            if (!(map1.get(key).equals(map2.get(key))))
+                return false;
         }
         return true;
     }
