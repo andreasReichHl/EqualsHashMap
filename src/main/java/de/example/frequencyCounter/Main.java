@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+        String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
 //        countChars(text).forEach((key, value) -> System.out.println(key + ": '" + value + "'"));
 
@@ -23,13 +23,8 @@ public class Main {
         if (!Objects.equals(text, "") && text != null) {
             while (!text.isEmpty()) {
                 char c = text.charAt(0);
-                if (Character.isLetter(c)) {
-                    if (charMap.containsKey(c)) {
-                        charMap.replace(c, charMap.get(c) + 1);
-                    } else {
-                        charMap.put(c, 1);
-                    }
-                }
+                if (Character.isLetter(c))
+                    charMap.put(c, charMap.getOrDefault(c, 0) + 1);
                 text = text.substring(1);
             }
         }
