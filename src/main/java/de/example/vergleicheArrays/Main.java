@@ -27,11 +27,7 @@ public class Main {
     public static HashMap<Integer, Integer> numbersInHashMap(int[] array) {
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int number : array) {
-            if (map.containsKey(number)) {
-                map.replace(number, map.get(number) + 1);
-            } else {
-                map.put(number, 1);
-            }
+            map.put(number, map.getOrDefault(number, 0) + 1);
         }
         return map;
     }
