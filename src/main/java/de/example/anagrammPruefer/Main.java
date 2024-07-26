@@ -9,7 +9,7 @@ public class Main {
         String text3 = "kj hg isyftoclewbaz xpq";
         String text4 = "qpxzabwelcoyftsigsshjk";
 
-        System.out.println(compareStrings(text1, text4));
+        System.out.println(compareStrings(text1, text2));
     }
 
 
@@ -17,13 +17,8 @@ public class Main {
         HashMap<Character, Integer> map = new HashMap<>();
         while (!text.isEmpty()) {
             char c = text.charAt(0);
-            if (Character.isLetter(c)) {
-                if (map.containsKey(c)) {
-                    map.replace(c, map.get(c) + 1);
-                } else {
-                    map.put(c, 1);
-                }
-            }
+            if (Character.isLetter(c))
+                map.put(c, map.getOrDefault(c, 0) + 1);
             text = text.substring(1);
         }
         return map;
